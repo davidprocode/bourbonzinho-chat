@@ -1,22 +1,26 @@
 import express, { Request, Response } from "express";
 import { db } from "./firebase.config";
 import ChatStorageController from "./ChatStorageController";
+import { chatController } from "./chatController";
+import venon from "venom-bot";
 
 const app = express();
-const port = 3000;
+const port = 3001;
 
-const chatStorage = new ChatStorageController();
+try {
+  venon
+    .create({ session: "Bourbonzinho" })
+    .then((client) => chatController.start(client));
+} catch (error) {
+  console.error(error);
+}
 
-app.get("/", async (req: Request, res: Response) => {
-  chatStorage.newChat({ author: "+75985641254" });
-
-  res.send("OK");
+app.get("/status", async (req: Request, res: Response) => {
+  res.send(chatController.status);
 });
 
 app.get("/all", async (req: Request, res: Response) => {
   const docRef = await db.collection("users").listDocuments();
-
-  console.log(docRef);
 
   res.send("OK");
 });
