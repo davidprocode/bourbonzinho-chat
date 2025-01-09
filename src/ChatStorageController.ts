@@ -1,10 +1,14 @@
-import { create, Message, Whatsapp } from "venom-bot";
+import { Message, Chat } from "venom-bot";
 import { db } from "./firebase.config";
 
-type Chat = {
+type HandledMessage = {
   id: String;
   author: String;
+  authorName: String;
+  profilePicThumbObj: String;
   content: String;
+  chat: Object;
+  raw: Message;
 };
 
 // type Message = {
@@ -14,11 +18,14 @@ type Chat = {
 // };
 
 export default class ChatStorageController {
-  static newChat(message: Chat) {
+  static onChat(message: HandledMessage) {
     console.log(`
       -------------------------------------
       message.author: ${message.author}
+      message.authorName: ${message.authorName}
+      message.profilePicThumbObj: ${message.profilePicThumbObj}
       message.content: ${message.content.padEnd(100)}
       `);
+    console.log(message.chat);
   }
 }

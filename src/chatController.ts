@@ -1,4 +1,4 @@
-import { create, Message, Whatsapp } from "venom-bot";
+import { create, Message, SocketState, Whatsapp } from "venom-bot";
 import ChatStorageController from "./ChatStorageController";
 
 export enum CLIENT_STATUS {
@@ -9,40 +9,43 @@ export enum CLIENT_STATUS {
 }
 
 export class ChatController {
-  static lastMessages(): any {
-    throw new Error("Method not implemented.");
+  getSocketStatus() {
+    return this.session?.onStateChange((state) => state);
   }
-  static status: CLIENT_STATUS;
-  static session: Whatsapp;
+  status: CLIENT_STATUS = CLIENT_STATUS.NEVER_CONNECTED;
+  session?: Whatsapp;
 
   lastMessages(): Object {
     return {};
   }
 
-  static handleMessage(message: Message): void {
-    if (message.isNewMsg) {
-      ChatStorageController.newChat({
+  handleMessage(message: Message): void {
+    if (!message.isGroupMsg) {
+      ChatStorageController.onChat({
         id: message.id,
-        author: message.author,
+        author: message.sender.id ?? message.author,
+        authorName: message.sender.formattedName ?? message.notifyName,
+        profilePicThumbObj: message.sender.profilePicThumbObj.eurl,
         content: message.content,
+        chat: message.chat,
+        raw: message,
       });
     }
-    throw new Error("Method not implemented.");
   }
 
-  static async start() {
+  start() {
     this.status = CLIENT_STATUS.CONNECTING;
-    create({ debug: true, session: "Bourbonzinho", headless: false })
-      .then((client) => {
-        this.session = client;
-        this.status = CLIENT_STATUS.CONNECTED;
-      })
-      .catch(() => {
-        this.status = CLIENT_STATUS.NOT_CONNECTED;
-      });
+    if (!this.session) {
+      create({ debug: true, session: "Bourbonzinho" })
+        .then((client) => {
+          this.status = CLIENT_STATUS.CONNECTED;
+          this.session = client;
+          this.session.onMessage((message) => this.handleMessage(message));
+          return this.session;
+        })
+        .catch(() => {
+          this.status = CLIENT_STATUS.NOT_CONNECTED;
+        });
+    }
   }
 }
-
-ChatController.session.onAnyMessage((message) => {
-  ChatController.handleMessage(message);
-});

@@ -1,57 +1,46 @@
-2025/01/09-13:48:46.853 318 Reusing MANIFEST C:\Users\Aluno\www\bourbonzinho-chat\tokens\Bourbonzinho\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/01/09-13:48:46.854 318 Recovering log #1327
-2025/01/09-13:48:46.860 318 Reusing old log C:\Users\Aluno\www\bourbonzinho-chat\tokens\Bourbonzinho\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/001327.log 
-2025/01/09-13:48:46.860 318 Delete type=2 #1312
-2025/01/09-13:48:46.860 318 Delete type=2 #1313
-2025/01/09-13:48:46.860 318 Delete type=2 #1314
-2025/01/09-13:48:46.860 318 Delete type=2 #1315
-2025/01/09-13:48:46.861 318 Delete type=2 #1316
-2025/01/09-13:48:46.861 318 Delete type=2 #1317
-2025/01/09-13:48:46.861 318 Delete type=2 #1318
-2025/01/09-13:48:46.861 318 Delete type=2 #1319
-2025/01/09-13:48:46.861 318 Delete type=2 #1320
-2025/01/09-13:48:46.861 318 Delete type=2 #1321
-2025/01/09-13:48:46.861 318 Delete type=2 #1329
-2025/01/09-13:48:49.825 20d4 Level-0 table #1344: started
-2025/01/09-13:48:49.836 20d4 Level-0 table #1344: 153742 bytes OK
-2025/01/09-13:48:49.841 20d4 Delete type=0 #1327
-2025/01/09-13:48:49.842 318 Manual compaction at level-0 from ' \x14\x01\x00\x00\x00' @ 72057594037927935 : 1 .. ' \x15\x01\x00\x00\x00' @ 0 : 0; will stop at ' \x14\x01\x00\x00\x05' @ 2138913 : 1
-2025/01/09-13:48:49.842 318 Compacting 1@0 + 1@1 files
-2025/01/09-13:48:49.853 318 Generated table #1345@0: 3376 keys, 68885 bytes
-2025/01/09-13:48:49.858 318 Generated table #1346@0: 90 keys, 3460 bytes
-2025/01/09-13:48:49.858 318 Compacted 1@0 + 1@1 files => 72345 bytes
-2025/01/09-13:48:49.861 318 compacted to: files[ 0 2 15 0 0 0 0 ]
-2025/01/09-13:48:49.862 318 Delete type=2 #1344
-2025/01/09-13:48:49.864 318 Manual compaction at level-0 from ' \x14\x01\x00\x00\x05' @ 2138913 : 1 .. ' \x15\x01\x00\x00\x00' @ 0 : 0; will stop at (end)
-2025/01/09-13:48:53.476 318 Compacting 1@1 + 8@2 files
-2025/01/09-13:48:53.563 318 Generated table #1347@1: 53292 keys, 2214028 bytes
-2025/01/09-13:48:53.619 318 Generated table #1348@1: 2584 keys, 2154789 bytes
-2025/01/09-13:48:53.671 318 Generated table #1349@1: 2885 keys, 2157246 bytes
-2025/01/09-13:48:53.723 318 Generated table #1350@1: 2723 keys, 2162067 bytes
-2025/01/09-13:48:53.774 318 Generated table #1351@1: 2483 keys, 2161633 bytes
-2025/01/09-13:48:53.842 318 Generated table #1352@1: 17782 keys, 2186974 bytes
-2025/01/09-13:48:53.944 318 Generated table #1353@1: 25187 keys, 2273760 bytes
-2025/01/09-13:48:54.036 318 Generated table #1354@1: 24827 keys, 2230418 bytes
-2025/01/09-13:48:54.042 318 Generated table #1355@1: 110 keys, 15618 bytes
-2025/01/09-13:48:54.042 318 Compacted 1@1 + 8@2 files => 17556533 bytes
-2025/01/09-13:48:54.046 318 compacted to: files[ 0 1 16 0 0 0 0 ]
-2025/01/09-13:48:54.046 318 Delete type=2 #1330
-2025/01/09-13:48:54.046 318 Delete type=2 #1331
-2025/01/09-13:48:54.047 318 Delete type=2 #1332
-2025/01/09-13:48:54.047 318 Delete type=2 #1333
-2025/01/09-13:48:54.047 318 Delete type=2 #1334
-2025/01/09-13:48:54.047 318 Delete type=2 #1335
-2025/01/09-13:48:54.047 318 Delete type=2 #1336
-2025/01/09-13:48:54.047 318 Delete type=2 #1337
-2025/01/09-13:48:54.047 318 Delete type=2 #1338
-2025/01/09-13:48:54.047 318 Delete type=2 #1345
-2025/01/09-13:48:59.217 1630 Compacting 1@1 + 3@2 files
-2025/01/09-13:48:59.722 1630 Generated table #1356@1: 105213 keys, 2257416 bytes
-2025/01/09-13:49:00.052 1630 Generated table #1357@1: 105912 keys, 2258325 bytes
-2025/01/09-13:49:00.089 1630 Generated table #1358@1: 15761 keys, 348430 bytes
-2025/01/09-13:49:00.089 1630 Compacted 1@1 + 3@2 files => 4864171 bytes
-2025/01/09-13:49:00.098 1630 compacted to: files[ 0 0 16 0 0 0 0 ]
-2025/01/09-13:49:00.099 1630 Delete type=2 #1323
-2025/01/09-13:49:00.099 1630 Delete type=2 #1324
-2025/01/09-13:49:00.099 1630 Delete type=2 #1325
-2025/01/09-13:49:00.099 1630 Delete type=2 #1346
+2025/01/09-15:44:55.217 2330 Reusing MANIFEST C:\Users\Aluno\www\bourbonzinho-chat\tokens\Bourbonzinho\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/01/09-15:44:55.217 2330 Recovering log #474
+2025/01/09-15:44:55.228 2330 Reusing old log C:\Users\Aluno\www\bourbonzinho-chat\tokens\Bourbonzinho\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/000474.log 
+2025/01/09-15:45:00.772 293c Level-0 table #492: started
+2025/01/09-15:45:00.798 293c Level-0 table #492: 306261 bytes OK
+2025/01/09-15:45:00.803 293c Delete type=0 #474
+2025/01/09-15:45:00.816 2e7c Manual compaction at level-0 from '\x00 \x00\x00\x00' @ 72057594037927935 : 1 .. '\x00!\x00\x00\x00' @ 0 : 0; will stop at '\x00 \x00\x00\x05' @ 1638430 : 1
+2025/01/09-15:45:00.818 2e7c Compacting 1@0 + 0@1 files
+2025/01/09-15:45:00.843 2e7c Generated table #493@0: 5904 keys, 150561 bytes
+2025/01/09-15:45:00.893 2e7c Generated table #494@0: 144 keys, 3813 bytes
+2025/01/09-15:45:00.893 2e7c Compacted 1@0 + 0@1 files => 154374 bytes
+2025/01/09-15:45:00.910 2e7c compacted to: files[ 0 2 12 0 0 0 0 ]
+2025/01/09-15:45:00.910 2e7c Delete type=2 #492
+2025/01/09-15:45:00.921 2330 Manual compaction at level-0 from '\x00 \x00\x00\x05' @ 1638430 : 1 .. '\x00!\x00\x00\x00' @ 0 : 0; will stop at (end)
+2025/01/09-15:45:03.775 2330 Compacting 1@1 + 10@2 files
+2025/01/09-15:45:03.944 2330 Generated table #495@1: 43516 keys, 2204809 bytes
+2025/01/09-15:45:04.186 2330 Generated table #496@1: 2743 keys, 2157269 bytes
+2025/01/09-15:45:04.235 2330 Generated table #497@1: 2904 keys, 2159929 bytes
+2025/01/09-15:45:04.291 2330 Generated table #498@1: 2706 keys, 2159898 bytes
+2025/01/09-15:45:04.356 2330 Generated table #499@1: 2403 keys, 2160861 bytes
+2025/01/09-15:45:06.253 2330 Generated table #500@1: 22255 keys, 2209391 bytes
+2025/01/09-15:45:06.592 2330 Generated table #501@1: 25517 keys, 2271530 bytes
+2025/01/09-15:45:06.994 2330 Generated table #502@1: 21810 keys, 2208677 bytes
+2025/01/09-15:45:07.919 2330 Generated table #503@1: 47794 keys, 2182132 bytes
+2025/01/09-15:45:08.542 2330 Generated table #504@1: 104525 keys, 2255103 bytes
+2025/01/09-15:45:08.721 2330 Generated table #505@1: 3010 keys, 65391 bytes
+2025/01/09-15:45:08.721 2330 Compacted 1@1 + 10@2 files => 22034990 bytes
+2025/01/09-15:45:08.801 2330 compacted to: files[ 0 1 13 0 0 0 0 ]
+2025/01/09-15:45:08.802 2330 Delete type=2 #478
+2025/01/09-15:45:08.802 2330 Delete type=2 #479
+2025/01/09-15:45:08.802 2330 Delete type=2 #480
+2025/01/09-15:45:08.802 2330 Delete type=2 #481
+2025/01/09-15:45:08.802 2330 Delete type=2 #482
+2025/01/09-15:45:08.802 2330 Delete type=2 #483
+2025/01/09-15:45:08.802 2330 Delete type=2 #484
+2025/01/09-15:45:08.803 2330 Delete type=2 #485
+2025/01/09-15:45:08.803 2330 Delete type=2 #486
+2025/01/09-15:45:08.803 2330 Delete type=2 #487
+2025/01/09-15:45:08.803 2330 Delete type=2 #493
+2025/01/09-15:45:10.204 19d8 Compacting 1@1 + 2@2 files
+2025/01/09-15:45:10.889 19d8 Generated table #506@1: 95386 keys, 2057928 bytes
+2025/01/09-15:45:10.889 19d8 Compacted 1@1 + 2@2 files => 2057928 bytes
+2025/01/09-15:45:10.969 19d8 compacted to: files[ 0 0 12 0 0 0 0 ]
+2025/01/09-15:45:10.969 19d8 Delete type=2 #488
+2025/01/09-15:45:10.970 19d8 Delete type=2 #489
+2025/01/09-15:45:10.970 19d8 Delete type=2 #494
