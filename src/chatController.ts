@@ -20,7 +20,7 @@ export class ChatController {
   }
 
   handleMessage(message: Message): void {
-    if (!message.isGroupMsg) {
+    if (!message.isGroupMsg || !message.isMedia) {
       ChatStorageController.onChat({
         id: message.id,
         author: message.sender.id ?? message.author,
