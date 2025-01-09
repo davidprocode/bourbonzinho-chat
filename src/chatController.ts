@@ -1,18 +1,48 @@
-import { Whatsapp } from "venom-bot";
+import { create, Message, Whatsapp } from "venom-bot";
+import ChatStorageController from "./ChatStorageController";
 
-enum CLIENT_STATUS {
-  "CONNECTED",
-  "NEVER_CONNECTED",
+export enum CLIENT_STATUS {
+  CONNECTED = "CONNECTED",
+  NEVER_CONNECTED = "NEVER_CONNECTED",
+  NOT_CONNECTED = "NOT_CONNECTED",
+  CONNECTING = "CONNECTING",
 }
 
-class ChatController {
-  session!: Whatsapp;
-  status: CLIENT_STATUS = CLIENT_STATUS.NEVER_CONNECTED;
-  start(client: Whatsapp) {
-    if (this.session!) {
-      this.session = client;
-      this.status = CLIENT_STATUS.CONNECTED;
+export class ChatController {
+  static lastMessages(): any {
+    throw new Error("Method not implemented.");
+  }
+  static status: CLIENT_STATUS;
+  static session: Whatsapp;
+
+  lastMessages(): Object {
+    return {};
+  }
+
+  static handleMessage(message: Message): void {
+    if (message.isNewMsg) {
+      ChatStorageController.newChat({
+        id: message.id,
+        author: message.author,
+        content: message.content,
+      });
     }
+    throw new Error("Method not implemented.");
+  }
+
+  static async start() {
+    this.status = CLIENT_STATUS.CONNECTING;
+    create({ debug: true, session: "Bourbonzinho", headless: false })
+      .then((client) => {
+        this.session = client;
+        this.status = CLIENT_STATUS.CONNECTED;
+      })
+      .catch(() => {
+        this.status = CLIENT_STATUS.NOT_CONNECTED;
+      });
   }
 }
-export const chatController = new ChatController();
+
+ChatController.session.onAnyMessage((message) => {
+  ChatController.handleMessage(message);
+});

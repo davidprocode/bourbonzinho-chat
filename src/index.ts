@@ -1,22 +1,25 @@
 import express, { Request, Response } from "express";
 import { db } from "./firebase.config";
-import ChatStorageController from "./ChatStorageController";
-import { chatController } from "./chatController";
-import venon from "venom-bot";
-
+import { ChatController, CLIENT_STATUS } from "./chatController";
 const app = express();
 const port = 3001;
 
-try {
-  venon
-    .create({ session: "Bourbonzinho" })
-    .then((client) => chatController.start(client));
-} catch (error) {
-  console.error(error);
-}
+app.get("/start", async (req: Request, res: Response) => {
+  if (ChatController.status != CLIENT_STATUS.CONNECTED) {
+    await ChatController.start()
+    res.send({ status: CLIENT_STATUS.CONNECTING });
+  }
+  if (ChatController.status === CLIENT_STATUS.CONNECTED) {
+    res.send({ status: CLIENT_STATUS.CONNECTED });
+  }
+});
 
 app.get("/status", async (req: Request, res: Response) => {
-  res.send(chatController.status);
+  res.send({ status: ChatController.status });
+});
+
+app.get("/last", async (req: Request, res: Response) => {
+  res.send(ChatController.lastMessages());
 });
 
 app.get("/all", async (req: Request, res: Response) => {

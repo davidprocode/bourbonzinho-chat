@@ -1,23 +1,24 @@
+import { create, Message, Whatsapp } from "venom-bot";
 import { db } from "./firebase.config";
 
 type Chat = {
   id: String;
   author: String;
-  messages: [Message];
+  content: String;
 };
 
-type Message = {
-  id: String;
-  body: String;
-  timestamp: String;
-};
+// type Message = {
+//   id: String;
+//   body: String;
+//   timestamp: String;
+// };
 
 export default class ChatStorageController {
-  constructor() {}
-
-  newChat(chat: Chat) {
-    console.log(`Log: New Chat With:`);
-    console.log(chat);
-    
+  static newChat(message: Chat) {
+    console.log(`
+      -------------------------------------
+      message.author: ${message.author}
+      message.content: ${message.content.padEnd(100)}
+      `);
   }
 }
