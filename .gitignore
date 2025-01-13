@@ -1,2 +1,4 @@
 node_modules/
-serviceAccountKey.json
+chrome/
+tokens/
+boubonzinho-chatbot-acaa66c524e8.json

@@ -1,5 +1,6 @@
-import { create, Message, SocketState, Whatsapp } from "venom-bot";
-import ChatStorageController from "./ChatStorageController";
+import { create, Message, Whatsapp } from "venom-bot";
+import { Storage } from "./firebase.config";
+import { Timestamp } from "firebase/firestore";
 
 export enum CLIENT_STATUS {
   CONNECTED = "CONNECTED",
@@ -9,34 +10,53 @@ export enum CLIENT_STATUS {
 }
 
 export class ChatController {
-  getSocketStatus() {
-    return this.session?.onStateChange((state) => state);
-  }
   status: CLIENT_STATUS = CLIENT_STATUS.NEVER_CONNECTED;
   session?: Whatsapp;
 
-  lastMessages(): Object {
-    return {};
+  async getAllMessagesPretty() {
+    return await Storage.messageGetAllPretty();
   }
 
-  handleMessage(message: Message): void {
+  async getAllMessages() {
+    return await Storage.messageGetAll();
+  }
+
+  async getLastMessages() {
+    return await Storage.messageGetLast();
+  }
+
+  handleMessage(message: Message) {
+    let docRefid;
+
     if (!message.isGroupMsg || !message.isMedia) {
-      ChatStorageController.onChat({
+      Storage.messageSave({
         id: message.id,
         author: message.sender.id ?? message.author,
-        authorName: message.sender.formattedName ?? message.notifyName,
+        authorName:
+          message.sender.formattedName.toString() ??
+          message.notifyName.toString(),
         profilePicThumbObj: message.sender.profilePicThumbObj.eurl,
-        content: message.content,
-        chat: message.chat,
+        body: message.content,
         raw: message,
+        timestamp: Timestamp.now(),
+      }).then((docRef) => {
+        console.log("::::", docRef);
+
+        docRefid = docRef;
       });
     }
+
+    return docRefid;
+  }
+
+  async getSocketStatus() {
+    return await this.session?.getStateConnection();
   }
 
   start() {
     this.status = CLIENT_STATUS.CONNECTING;
     if (!this.session) {
-      create({ debug: true, session: "Bourbonzinho" })
+      create({ session: "Bourbonzinho" })
         .then((client) => {
           this.status = CLIENT_STATUS.CONNECTED;
           this.session = client;
